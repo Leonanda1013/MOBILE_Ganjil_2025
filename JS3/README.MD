@@ -76,6 +76,42 @@ do {
 **Apa yang terjadi ? Jika terjadi error, silakan perbaiki namun tetap menggunakan do-while**<br>
 **Jawab** ***Tidak terjadi eror, terjadi perhitungan 1 hingga 76***
 
+## Praktikum 3
+1. 
+```dart
+for (Index = 10; index < 27; index) {
+  print(Index);
+}
+```
+2. **Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jelaskan! Lalu perbaiki jika terjadi error.**<br> 
+**Jawab :** ***Terjadi eror karena variable belum dideklarasi dan increment salah***
+```dart
+void main() {
+  for (int index = 10; index < 27; index++) {
+    print(index);
+  }
+}
+```
+3. **Tambahkan**
+```dart
+If (Index == 21) break;
+Else If (index > 1 || index < 7) continue;
+print(index);
+```
+**Jawab :** ***Terjadi eror karena penulisan else if yang salah***<br>
+**Pembetulan**
+```dart
+void main() {
+  for (int index = 10; index < 27; index++) {
+    print(index);
+    if (index == 21)
+      break;
+    else if (index > 1 || index < 7)
+      continue;
+    print(index);
+  }
+}
+```
 
 
 
