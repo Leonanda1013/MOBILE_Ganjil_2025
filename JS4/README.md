@@ -42,5 +42,45 @@ print(list[1]);
   print("Index ke-2 (NIM): ${list[2]}");
 ```
 
+## Praktikum 2
+
+1. 
+```dart
+var halogens = {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+print(halogens);
+```
+2. **Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jelaskan! Lalu perbaiki jika terjadi error.** <br>
+**Jawab :** ***Semua yang ada pada array halogens akan ditampilkan ***
+
+3. 
+```dart
+var names1 = <String>{};
+Set<String> names2 = {}; // This works, too.
+var names3 = {}; // Creates a map, not a set.
+
+print(names1);
+print(names2);
+print(names3);
+```
+**Jawab : alogens adalah sebuah Set berisi lima elemen string, sedangkan names1 dan names2 sama-sama Set<String> kosong, dan names3 adalah Map<dynamic, dynamic> kosong karena {} tanpa anotasi dianggap map, bukan set; meskipun saat dicetak semuanya terlihat {}, tipe data mereka sebenarnya berbeda.**
+
+4. **Tambahkan elemen nama dan NIM Anda pada kedua variabel Set tersebut dengan dua fungsi berbeda yaitu .add() dan .addAll(). Untuk variabel Map dihapus, nanti kita coba di praktikum selanjutnya.**
+```dart
+var names1 = <String>{};
+Set<String> names2 = {}; // This works, too.
+var names3 = {}; // Creates a map, not a set.
+ // Menambahkan data ke Set dengan .add()
+  names1.add("Vincentius Leonanda Prabowo"); 
+  names1.add("2341720149 coba beda"); 
+
+
+  names2.addAll({"Vincentius Leonanda Prabowo", "2341720149"});
+print(names1);
+print(names2);
+print(names3);
+```
+
+
+
 
 
