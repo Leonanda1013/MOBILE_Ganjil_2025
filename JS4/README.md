@@ -157,6 +157,30 @@ void main() {
 ```
 
 
-
+## Praktikum 4
+1. 
+```dart
+int index;
+  for (index = 10; index < 27; index) {
+  print(index);
+}
+```
+2. Program tidak akan berhenti karena increment tetap pada index
+3. 
+```dart
+void main() {
+  int index;
+  for (index = 10; index < 27; index++) {
+    print(index);
+    if (index == 21) {
+      break;
+    } else if (index > 1 || index < 7) {
+      continue;
+    }
+    print(index);
+  }
+}
+```
+4. Program akan berhenti pada angka 21
 
 
