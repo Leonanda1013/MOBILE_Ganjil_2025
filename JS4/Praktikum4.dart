@@ -1,12 +1,10 @@
 void main() {
-  int index;
-  for (index = 10; index < 27; index++) {
-    print(index);
-    if (index == 21) {
-      break;
-    } else if (index > 1 || index < 7) {
-      continue;
-    }
-    print(index);
-  }
+  var listOfInts = [1, 2, 3];
+
+  var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
+
+  // Mengecek apakah elemen kedua sesuai
+  assert(listOfStrings[1] == '#1');
+
+  print(listOfStrings);
 }

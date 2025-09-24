@@ -160,27 +160,127 @@ void main() {
 ## Praktikum 4
 1. 
 ```dart
-int index;
-  for (index = 10; index < 27; index) {
-  print(index);
+void main() {
+  var list1 = [1, 2, 3];
+  var list2 = [0, ...list1];
+  print(list1);
+  print(list2);
+  print(list2.length);
 }
+
 ```
-2. Program tidak akan berhenti karena increment tetap pada index
+2. Operator ...list1 menyebarkan (spread) isi dari list1 ke dalam list2.
 3. 
 ```dart
 void main() {
-  int index;
-  for (index = 10; index < 27; index++) {
-    print(index);
-    if (index == 21) {
-      break;
-    } else if (index > 1 || index < 7) {
-      continue;
-    }
-    print(index);
-  }
+  var list1 = [1, 2, null];
+  print(list1);
+
+  var list3 = [0, ...?list1];
+  print(list3);
+  print(list3.length);
+}
+
+```
+...?list1 artinya: kalau list1 tidak null, maka isinya di-spread. Kalau list1 = null, maka tidak ada error dan list3 tetap [0].
+
+4. 
+```dart
+void main() {
+  var promoActive = true;
+  var nav = ['Home', 'Furniture', 'Plants', if (promoActive) 'Outlet'];
+  print(nav);
+
+  promoActive = false;
+  nav = ['Home', 'Furniture', 'Plants', if (promoActive) 'Outlet'];
+  print(nav);
 }
 ```
-4. Program akan berhenti pada angka 21
+Collection if memungkinkan kita menambahkan elemen ke list hanya jika kondisi promoActive bernilai true.
+
+5.
+```dart
+void main() {
+  var login = 'Manager';
+
+  var nav2 = ['Home', 'Furniture', 'Plants', if (login == 'Manager') 'Inventory'];
+  print(nav2);
+
+  login = 'User';
+  nav2 = ['Home', 'Furniture', 'Plants', if (login == 'Manager') 'Inventory'];
+  print(nav2);
+}
+```
+Collection if juga bisa digunakan untuk menambahkan elemen tertentu (misalnya 'Inventory') hanya jika kondisi login sesuai (contohnya 'Manager').
+
+6. 
+```dart
+void main() {
+  var listOfInts = [1, 2, 3];
+
+  var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
+
+  // Mengecek apakah elemen kedua sesuai
+  assert(listOfStrings[1] == '#1');
+
+  print(listOfStrings);
+}
+```
+Collection for digunakan untuk membangkitkan elemen list baru secara dinamis dari list lain dengan sintaks lebih ringkas.
 
 
+
+## Praktikum 5
+1. 
+```dart 
+void main() {
+  var record = ('first', a: 2, b: true, 'last');
+  print(record);
+}
+```
+Record di Dart bisa berisi positional fields ('first', 'last') dan named fields (a: 2, b: true). Kode ini langsung jalan tanpa error.
+
+3. 
+```dart
+ // Fungsi tukar untuk menukar isi record
+(int, int) tukar((int, int) record) {
+  var (a, b) = record; // destruktur record
+  return (b, a);       // return record baru dengan posisi terbalik
+}
+
+void main() {
+  var angka = (10, 20);
+  print("Sebelum tukar: $angka");
+  var hasil = tukar(angka);
+  print("Sesudah tukar: $hasil");
+}
+```
+Fungsi tukar() menerima record (int, int) lalu mengembalikannya dengan posisi elemen ditukar.
+
+4. 
+```dart
+void main() {
+  (String, int) mahasiswa;
+  // print(mahasiswa); // ❌ ERROR: variabel belum diinisialisasi
+
+  // ✔️ Perbaikan: langsung beri nilai
+  mahasiswa = ('Vinentius', 2341720149);
+  print(mahasiswa);
+}
+```
+Record (String, int) digunakan untuk menyimpan nama dan NIM. Jika tidak diinisialisasi akan error, jadi harus langsung diberi nilai.
+
+5. 
+```dart
+void main() {
+  var mahasiswa2 = ('Vinentius', a: 2341720149, b: true, 'last');
+
+  print(mahasiswa2.$1); // Prints 'Vinentius'
+  print(mahasiswa2.a);  // Prints 2341720149
+  print(mahasiswa2.b);  // Prints true
+  print(mahasiswa2.$2); // Prints 'last'
+}
+```
+>$1, $2 digunakan untuk mengakses positional fields.
+>a, b digunakan untuk mengakses named fields.
+>Record fleksibel: bisa memuat gabungan field positional & named sekaligus.
