@@ -97,12 +97,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // const AlertDialogWidget(),
-            // const FabWidget(),
+            const AlertDialogWidget(),
+            // const FabWidget(), masih eror
             // const MyImageWidget(),
             // const MyTextWidget(),
             // const SelectionWidget(),
-            const Clock(title: 'jakebka'),
+            // const Clock(title: 'jakebka'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
