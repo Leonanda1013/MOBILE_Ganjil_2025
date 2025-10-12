@@ -15,16 +15,15 @@ class MyApp extends StatelessWidget {
           Expanded(
             // soal 1
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // posisi kolom di awal baris
+              crossAxisAlignment:
+                  CrossAxisAlignment.start, // posisi kolom di awal baris
               children: [
                 // soal 2
                 Container(
                   padding: const EdgeInsets.only(bottom: 8), // jarak bawah 8
                   child: const Text(
                     'Wisata Gunung di Batu',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 Text(
@@ -52,33 +51,40 @@ class MyApp extends StatelessWidget {
     Color color = Theme.of(context).primaryColor;
 
     Widget buttonSection = Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly, // jarak antar kolom merata
+      mainAxisAlignment:
+          MainAxisAlignment.spaceEvenly, // jarak antar kolom merata
       children: [
         _buildButtonColumn(color, Icons.call, 'CALL'),
         _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
         _buildButtonColumn(color, Icons.share, 'SHARE'),
       ],
     );
-
+    // --------------------------
+    // Langkah 3: Text Section
+    // --------------------------
+    Widget textSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: const Text(
+        'Carilah teks di internet yang sesuai '
+        'dengan foto atau tempat wisata yang ingin '
+        'Anda tampilkan. '
+        'Tambahkan nama dan NIM Anda sebagai '
+        'identitas hasil pekerjaan Anda. '
+        'Selamat mengerjakan 🙂.',
+        softWrap: true,
+      ),
+    );
     return MaterialApp(
       title: 'Flutter layout: Vincentius dan 2341720149',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter layout demo'),
-        ),
+        appBar: AppBar(title: const Text('Flutter layout demo')),
         // Ganti body "Hello World" dengan variabel titleSection
-        body: Column(
-          children: [
-            titleSection,
-            buttonSection,
-          ],
-        ),
+        body: Column(children: [titleSection, buttonSection, textSection]),
       ),
     );
   }
 
-
-// --------------------------
+  // --------------------------
   // Langkah 1: Method _buildButtonColumn
   // --------------------------
   Column _buildButtonColumn(Color color, IconData icon, String label) {
@@ -88,7 +94,9 @@ class MyApp extends StatelessWidget {
       children: [
         Icon(icon, color: color),
         Container(
-          margin: const EdgeInsets.only(top: 8), // jarak atas antara ikon dan teks
+          margin: const EdgeInsets.only(
+            top: 8,
+          ), // jarak atas antara ikon dan teks
           child: Text(
             label,
             style: TextStyle(
