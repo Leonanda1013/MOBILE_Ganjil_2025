@@ -79,7 +79,19 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text('Flutter layout demo')),
         // Ganti body "Hello World" dengan variabel titleSection
-        body: Column(children: [titleSection, buttonSection, textSection]),
+        body: Column(
+          children: [
+            Image.asset(
+              '.../images/gunung.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection,
+            textSection,
+          ],
+        ),
       ),
     );
   }
