@@ -46,8 +46,22 @@ class MyApp extends StatelessWidget {
       ),
     );
 
+    // --------------------------
+    // Langkah 2: Button Section
+    // --------------------------
+    Color color = Theme.of(context).primaryColor;
+
+    Widget buttonSection = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly, // jarak antar kolom merata
+      children: [
+        _buildButtonColumn(color, Icons.call, 'CALL'),
+        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+        _buildButtonColumn(color, Icons.share, 'SHARE'),
+      ],
+    );
+
     return MaterialApp(
-      title: 'Flutter layout: Nama dan NIM Anda',
+      title: 'Flutter layout: Vincentius dan 2341720149',
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
@@ -56,9 +70,35 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: [
             titleSection,
+            buttonSection,
           ],
         ),
       ),
+    );
+  }
+
+
+// --------------------------
+  // Langkah 1: Method _buildButtonColumn
+  // --------------------------
+  Column _buildButtonColumn(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisSize: MainAxisSize.min, // ukuran minimum kolom
+      mainAxisAlignment: MainAxisAlignment.center, // posisi tengah
+      children: [
+        Icon(icon, color: color),
+        Container(
+          margin: const EdgeInsets.only(top: 8), // jarak atas antara ikon dan teks
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color, // warna teks sama dengan warna ikon
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
