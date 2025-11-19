@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:kamera_flutter/widget/filter_carousel.dart';
 import 'widget/takepicture_screen.dart';
 
 late List<CameraDescription> cameras;
@@ -10,7 +11,14 @@ Future<void> main() async {
   cameras = await availableCameras();
   final firstCamera = cameras.first;
 
-  runApp(MyApp(camera: firstCamera));
+  // runApp(MyApp(camera: firstCamera));
+
+  runApp(
+     MaterialApp(
+      home: PhotoFilterCarousel(camera: firstCamera,),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
