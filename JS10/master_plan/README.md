@@ -28,4 +28,9 @@
 
 3. Method pada langkah 3 tersebut berfungsi untuk menghitung jumlah tugas yang sudah selesai dan membuat pesan ringkas tentang tingkat penyelesaian rencana. Getter completedCount bekerja dengan memfilter daftar tasks menggunakan .where((task) => task.complete), yaitu memilih hanya task yang ditandai selesai, kemudian mengambil .length-nya. Hal ini dilakukan agar jumlah tugas selesai selalu dihitung secara dinamis berdasarkan kondisi terbaru daftar tugas. Getter kedua, completenessMessage, menyusun string seperti "3 out of 5 tasks" dengan menggunakan nilai dari completedCount dan total task. Cara ini dipilih karena getter memungkinkan hasil selalu up-to-date tanpa menyimpan nilai secara terpisah, sehingga tidak ada risiko data tidak sinkron dan UI selalu menampilkan status penyelesaian yang benar.
 
-4. 
+## Praktikum 3
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+## Tugas Praktikum 3
+2. Diagram ini menunjukkan struktur widget pada dua layar berbeda dalam aplikasi Praktikum 3. Di sisi kiri, tree menunjukkan susunan widget ketika pengguna berada di halaman PlanCreatorScreen, yang berisi TextField dan ListView untuk membuat plan. Panah “Navigator Push” menunjukkan perpindahan layar menggunakan Navigator.push() menuju PlanScreen. Bagian kanan menampilkan widget tree pada halaman PlanScreen, yang menggunakan Scaffold, Column, Expanded, ListView, dan SafeArea untuk menampilkan daftar task dan informasi plan. Diagram ini menggambarkan alur UI dan bagaimana pengguna berpindah dari proses pembuatan plan ke halaman detail plan.
